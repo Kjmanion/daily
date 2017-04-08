@@ -1,0 +1,206 @@
+html{
+    box-sizing:border-box;
+    font-family:'Open Sans', sans-serif;
+}
+
+*,*:before,*:after{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+}
+
+header{
+    width:100%;
+    margin:0 auto;
+    text-align:right;
+    height:475px;
+    position:relative;
+
+
+    .backgroundImage{
+        position:absolute;
+        left:0;
+        right:0;
+        z-index:1;
+        width:100%;
+        height:100%;
+        background-image:url("clock3.jpg");
+        background-position:left 85%;
+        background-size:cover;
+        background-repeat:no-repeat;
+        filter:brightness(50%) contrast(70%);
+    }
+
+    .headerText{
+        width:45%;
+        position:absolute;
+        top:20%;
+        right:5%;
+        z-index:2;
+        color:white;
+        h1{
+            margin-top:0px;
+            text-align:center;
+        }
+        p{
+            text-align:center;
+        }
+    }
+
+    //     margin-right:5%;
+    //     letter-spacing:0.05em;
+    //     color:white;
+    // }
+    // p{
+    //     display:inline-block;
+    //     width:40%;
+    //     margin-left:50%;
+    //     margin-right:10%;
+    //     margin-top:5%;
+    //     line-height:1.3em;
+    //     color:red;
+    // }
+    // padding:20% 0 20% 0;
+    // background-image: url("clock2.jpg");
+    // background-size:cover;
+    // filter:brightness(60%) contrast(70%);
+
+}
+
+
+/*--------------ParentDiv and 2 child containers------------------------*/
+
+.formsChart{
+    width:100%;
+    margin:0 auto;
+    content:"";
+    display:table;
+    clear:both;
+    padding:5% 0% 15% 0%;
+    background-color:#D2E3FA;
+}
+
+
+.formInstructions,
+.listChart{
+    float:left;
+    width:50%;
+    p{
+        margin:2% 4% 2% 4%;
+    }
+    h2,h3{
+        text-align:center;
+        margin-top:2%;
+    }
+
+}
+
+/*--------------------InputDiv----------------------*/
+
+.formInstructions{
+  padding-top:200px;
+  padding-bottom:10%;
+
+}
+.itemsEntered{
+    margin-top:5%;
+}
+
+
+//
+// .itemsEntered{
+//     span,input{
+//         display:inline-block;
+//         margin-left:1.5%;
+//         font-size:1.1rem;
+//     }
+//     .hoursDiv{
+//       display:block;
+//       margin-top:2%;
+//       margin-left:16%;
+//       width:50%;
+//     }
+//
+// }
+
+
+.itemsEntered{
+    span,input{
+        font-size:1.1rem;
+    }
+
+    .descriptor,
+    .submission{
+      display:inline-block;
+      margin-left:5%;
+      margin-right:2%;
+      margin-top:2%;
+
+    }
+    input.submission{
+        margin-left:105px;
+    }
+    select{
+      margin-left:1.1%;
+    }
+}
+
+
+
+
+
+/*-------------------------OutputDiv----------------------------*/
+
+.listChart{
+  display:none;
+  padding-top:2% 0% 5% 0%
+}
+
+svg{
+  display:block;
+  margin:0 auto;
+}
+
+.listChart li{
+    list-style-type:circle;
+    margin-top:2%;
+}
+
+
+
+/*------------------------MediaQueries---------------------------*/
+
+@media only screen and (min-width:600px) and (max-width:843px){
+
+}
+
+
+@media only screen and (max-width:692px){
+
+    header{
+        height:400px;
+
+        .backgroundImage{
+            background-position:left center;
+        }
+
+        .headerText{
+            position:absolute;
+            top:0%;
+            left:25%;
+        }
+    }
+
+
+    .formsChart{
+        padding-top:15%;
+    }
+
+    .formInstructions,
+    .listChart{
+        padding-top:7%;
+        width:100%;
+    }
+}

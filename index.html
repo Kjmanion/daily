@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+        <link rel="stylesheet" href="main.css">
+        <title>How do you spend your day?</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <header>
+            <div class="backgroundImage"></div>
+            <div class="headerText">
+                <h1>A Different Way to View Your Day</h1>
+                <p>Humans are habitual beings. Routines are good for us.
+                 This app will give you a different
+                vantage point of how you spend your day.
+                </p>
+            </div>
+
+        </header>
+        <section class="formsChart">
+            <div class="formInstructions">
+                <h2>How it works</h2>
+                <p>Write your activity and specify how many hours you spend doing it. We've already partly filled
+                    out your day with sleep. Just specify how many hours you get.</p>
+                <div class="itemsEntered">
+                    <span class="descriptor">Activity </span><input type="text" size=20 class="item" value="Sleep"/>
+                    <div class="hoursDiv">
+                      <span class="descriptor">Hours</span>
+                      <select name="hours" id="hours">
+                          <option value=1>1</option>
+                          <option value=2>2</option>
+                          <option value=3>3</option>
+                          <option value=4>4</option>
+                          <option value=5>5</option>
+                          <option value=6>6</option>
+                          <option value=7>7</option>
+                          <option value=8>8</option>
+                          <option value=9>9</option>
+                          <option value=10>10</option>
+                          <option value=11>11</option>
+                          <option value=12>12</option>
+                      </select>
+                      <input type="submit" value="Add" class="submission">
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="listChart">
+                <div id="chart">
+
+                </div>
+                <div class="listGenerate">
+                    <h2>Your Day</h2>
+                    <ul>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+
+
+        <footer>
+
+        </footer>
+        <script src="https://d3js.org/d3.v4.min.js"></script>
+        <script src="script.js"></script>
+    </body>
+</html>
