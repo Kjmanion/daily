@@ -97,6 +97,10 @@ header{
 
 }
 
+input[type="submit"]{
+  cursor:pointer;
+}
+
 /*--------------------InputDiv----------------------*/
 
 .formInstructions{
@@ -138,9 +142,11 @@ header{
       margin-right:2%;
       margin-top:2%;
 
+
     }
     input.submission{
         margin-left:105px;
+
     }
     select{
       margin-left:1.1%;
@@ -155,24 +161,34 @@ header{
 
 .listChart{
   display:none;
-  padding-top:2% 0% 5% 0%
+  padding-top:2% 0% 5% 0%;
+  margin-top:200px;
 }
 
-svg{
+svg,.generateGraph,.restartButton{
   display:block;
   margin:0 auto;
+
 }
 
 .listChart li{
-    list-style-type:circle;
-    margin-top:2%;
+  list-style-type:circle;
+  margin-top:2%;
+}
+
+.restartButton{
+  display:none;
+}
+
+.generateGraph{
+  margin-top:5%;
 }
 
 
 
 /*------------------------MediaQueries---------------------------*/
 
-@media only screen and (min-width:600px) and (max-width:843px){
+@media only screen and (min-width:692px) and (max-width:843px){
 
 }
 
@@ -195,12 +211,12 @@ svg{
 
 
     .formsChart{
-        padding-top:15%;
+        padding-top:10%;
     }
 
     .formInstructions,
     .listChart{
-        padding-top:7%;
+        padding-top:2%;
         width:100%;
     }
 }
