@@ -5,7 +5,10 @@
     document.getElementsByClassName("submission")[0].addEventListener("click", function(){
         var item = document.getElementsByClassName("itemsEntered")[0].childNodes;
         var hours = document.getElementsByClassName("hoursDiv")[0].childNodes;
-
+        if (item == ""){
+          alert("Please enter an item");
+          return;
+        }
         if (information.length <1 ){
           document.getElementsByClassName("listChart")[0].style.display="block";
           document.getElementsByClassName("formInstructions")[0].style.padding = "200px 0% 5% 0%"
@@ -56,45 +59,50 @@
 
     document.getElementsByClassName("generateGraph")[0].addEventListener("click", function(){
       document.getElementsByClassName("listChart")[0].style.margin="0 0 0 0"
-      if (document.getElementsByTagName("svg")[0]){
-        var path = svg.selectAll("path")
-          .data(pie(information))
-          .enter()
-          .append('path')
-          .attr("d", arc)
-          .attr("fill", function(d, i){
-            return color(d.data.activity)
-          });
-      }else{
-        var width = 200;
-        var height = 200;
-        var radius = Math.min(width, height) / 2;
+      var total = information.reduce(function(a, b){
+        return {timeHours: a.timeHours + b.timeHours};
+      })
+      console.log(total.timeHours);
+      var width = 200;
+      var height = 200;
+      var radius = Math.min(width, height) / 2;
+      var scale = ['#a6cee3','#1f78b4','#b2df8a','#33a02c','#fb9a99','#e31a1c','#fdbf6f','#ff7f00','#cab2d6','#6a3d9a'];
+      var color = d3.scaleOrdinal()
+        .range(scale)
 
-        var color = d3.scaleOrdinal(d3.schemeCategory20);
 
-        var svg = d3.select("#chart")
-          .append("svg")
-          .attr("width", width)
-          .attr("height", height)
-          .append("g")
-          .attr("transform","translate(" + (width/2) + "," + (height/2) + ")" );
+      var listElements = document.getElementsByTagName("li");
+      for(i = 0; i < listElements.length; i++){
+        var div = document.createElement("div")
+        div.className = "colorCircle"
+        div.style.background = scale[i];
+        document.getElementsByTagName("li")[i].textContent = document.getElementsByTagName("li")[i].textContent + " (" + Math.round((information[i].timeHours / total.timeHours) * 100) +  " Percent of your day)";
+        document.getElementsByTagName("li")[i].appendChild(div);
+      }
 
-        var arc = d3.arc()
-          .innerRadius(0)
-          .outerRadius(radius);
+      var svg = d3.select("#chart")
+        .append("svg")
+        .attr("width", width)
+        .attr("height", height)
+        .append("g")
+        .attr("transform","translate(" + (width/2) + "," + (height/2) + ")" );
 
-        var pie = d3.pie()
-          .value(function(d){return d.timeHours})
-          .sort(null);
-        var path = svg.selectAll("path")
-          .data(pie(information))
-          .enter()
-          .append('path')
-          .attr("d", arc)
-          .attr("fill", function(d, i){
-            return color(d.data.activity)
-          });
-        };
+      var arc = d3.arc()
+        .innerRadius(0)
+        .outerRadius(radius);
+
+      var pie = d3.pie()
+        .value(function(d){return d.timeHours})
+        .sort(null);
+      var path = svg.selectAll("path")
+        .data(pie(information))
+        .enter()
+        .append('path')
+        .attr("d", arc)
+        .attr("fill", function(d, i){
+          return color(d.data.activity)
+        });
+
         document.getElementsByClassName("generateGraph")[0].style.display="none"
         document.getElementsByClassName("restartButton")[0].style.display="block"
     })

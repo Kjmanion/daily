@@ -172,8 +172,9 @@ svg,.generateGraph,.restartButton{
 }
 
 .listChart li{
-  list-style-type:circle;
+  list-style-type:none;
   margin-top:2%;
+  position:relative;
 }
 
 .restartButton{
@@ -182,6 +183,19 @@ svg,.generateGraph,.restartButton{
 
 .generateGraph{
   margin-top:5%;
+}
+
+.colorCircle{
+  position:absolute;
+  left:-5%;
+  top:20%;
+  display:inline-block;
+  height:10px;
+  width:10px;
+  color:red;
+  border-radius:50%;
+
+
 }
 
 
